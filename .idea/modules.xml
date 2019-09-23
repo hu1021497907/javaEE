@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/hellojavaweb/hellojavaweb.iml" filepath="$PROJECT_DIR$/hellojavaweb/hellojavaweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbcdemo1/jdbcdemo1.iml" filepath="$PROJECT_DIR$/jdbcdemo1/jdbcdemo1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbcdemo2/jdbcdemo2.iml" filepath="$PROJECT_DIR$/jdbcdemo2/jdbcdemo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatisdemo/mybatisdemo.iml" filepath="$PROJECT_DIR$/mybatisdemo/mybatisdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatisdemo2/mybatisdemo2.iml" filepath="$PROJECT_DIR$/mybatisdemo2/mybatisdemo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/orderdemo/orderdemo.iml" filepath="$PROJECT_DIR$/orderdemo/orderdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ordermanager/ordermanager.iml" filepath="$PROJECT_DIR$/ordermanager/ordermanager.iml" />
+    </modules>
+  </component>
+</project>

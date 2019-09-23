@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace给一个命名空间 -->
+<mapper namespace="com.neuedu.mapper.CourseMapper">
+    <!-- resultType是告诉mybatis我这个语句查询要封装成那个类 -->
+    <select id="listCourse" resultType="Course">
+        select * from course where cname = #{cname}
+    </select>
+
+    <insert id="saveCourse">
+        insert into course values (#{cno},#{cname},#{credit},#{semester})
+    </insert>
+
+    <delete id="deleteCourse">
+        delete from course where cno ='c0010'
+    </delete>
+
+    <update id="updateCourse">
+        update course set cname = '放假了',credit = 2, semester = 1 where cno = 'c008'
+    </update>
+
+</mapper>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace给一个命名空间 -->
+<mapper namespace="com.neuedu.mapper.OrderMapper">
+
+    <resultMap id="orderMap" type="Order">
+        <id column="order_id" property="orderId"/>
+        <result column="status" property="status"/>
+        <result column="member_id" property="memberId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <select id="listOrder" resultMap="orderMap">
+        select <include refid="allColumn"></include> from  s_order
+    </select>
+    
+    <select id="selectOrderByMemberId" resultMap="orderMap">
+        select <include refid="allColumn"></include> from  s_order where member_id = #{memberId}
+    </select>
+    
+    <insert id="saveOrder">
+        insert into s_order(order_id,status,member_id) values (#{orderId},#{status},#{memberId})
+    </insert>
+
+    <update id="updateOrderByMemberId">
+        update s_order set status = #{status} where order_id = #{orderId} and member_id = #{memberId}
+    </update>
+
+    <delete id="delectOrderByOrderId">
+        delete from s_order where order_id = #{orderId}
+    </delete>
+
+    <delete id="delectOrderByMemberId">
+        delete from s_order where member_id = #{memberId}
+    </delete>
+
+    <!-- 存储sql代码段 -->
+    <sql id="allColumn">
+        order_id,status,member_id,create_time,update_time
+    </sql>
+
+
+
+    <select id="listOrderByParam" resultMap="orderMap">
+        select <include refid="allColumn"/> from s_order where
+        <trim prefix="where" prefixOverrides="and | or">
+        <if test="orderId != null">
+            and order_id = #{orderId}
+        </if>
+        <if test="status != null">
+            and status = #{status}
+        </if>
+        </trim>
+    </select>
+
+    <update id="updateOrder">
+        update s_order
+        <trim prefix="set" suffixOverrides=",">
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="memberId != null">
+                member_id = #{memberId}
+            </if>
+        </trim>
+        where order_id = #{orderId}
+    </update>
+
+    <delete id="deleteByIds">
+        delete from s_order where order_id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+
+    </delete>
+
+</mapper>
